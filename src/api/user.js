@@ -4,8 +4,8 @@ import request from '@/utils/request'
 export const userRegisterService = ({ username, password, repassword, email, authcode }) =>
   request.post('/login/add', { username, password, repassword, email, authcode })
 //用户登录接口
-export const userLoginService = ({ username, password }) =>
-  request.post('/login/GetToken', { username, password })
+export const userLoginService = ({ username, password, publicKey }) =>
+  request.post('/login/GetToken', { username, password, publicKey })
 
 //获取用户基本信息
 export const userGetInfoService = () => request.get('/login/userinfo')
@@ -16,4 +16,9 @@ export const SendVerificationCode = (email) => request.get('/login/SendVerificat
 //上传照片识别
 export const PutUserAvatarService = (photo) => {
   return request.put('/user/PutUserAvatar', { photo })
+}
+
+//获取公钥接口
+export const getPublicKeyService = () => {
+  return request.get('/login/GetPublicKey')
 }

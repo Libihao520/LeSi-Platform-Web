@@ -44,7 +44,7 @@ const login = async () => {
       ElMessage.error("获取加密密钥失败，请重试");
       return;
     }
-      console.log(await rsaEncrypt(formModel.value.username))
+    console.log(await rsaEncrypt(formModel.value.username));
     const res = await userLoginService({
       username: await rsaEncrypt(formModel.value.username),
       password: await rsaEncrypt(formModel.value.password),
@@ -157,6 +157,7 @@ watch(isRegister, () => {
     <el-col :span="12" class="bg"></el-col>
     <el-col :span="6" :offset="3" class="form">
       <h1 style="color: rgb(81, 146, 220)">乐思赋能平台</h1>
+      <h3 style="color: rgb(169, 169, 169); margin-left: 20%">————乐思&宇梦</h3>
       <!-- 注册表单 -->
       <el-form
         :model="formModel"

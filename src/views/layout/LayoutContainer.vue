@@ -187,7 +187,7 @@ const handleCommand = async (key) => {
       <el-main>
         <router-view></router-view>
       </el-main>
-      <el-footer>乐思赋能平台 ©2025 Created by lsbc</el-footer>
+      <el-footer>乐思赋能平台 ©2025 Created by 乐思&宇梦科技</el-footer>
     </el-container>
   </el-container>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 import {
   Odometer,
   FolderOpened,
@@ -20,45 +20,45 @@ import {
   FullScreen,
   Grid,
   ChatLineSquare,
-  Notebook
-} from '@element-plus/icons-vue'
-import avatar from '@/assets/default.png'
-import { useUserStore } from '@/stores'
-import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import { getSubjectsOrFileLabel } from '../../api/exercises'
+  Notebook,
+} from "@element-plus/icons-vue";
+import avatar from "@/assets/default.png";
+import { useUserStore } from "@/stores";
+import { onMounted } from "vue";
+import { useRouter } from "vue-router";
+import { getSubjectsOrFileLabel } from "../../api/exercises";
 
-const userStore = useUserStore()
-const router = useRouter()
-const subjects = ref([])
+const userStore = useUserStore();
+const router = useRouter();
+const subjects = ref([]);
 const getTableList = async () => {
-  const res = await getSubjectsOrFileLabel()
-  subjects.value = []
+  const res = await getSubjectsOrFileLabel();
+  subjects.value = [];
   res.data.data.forEach((item) => {
-    subjects.value.push({ label: item.label, value: item.value })
-  })
-}
-getTableList()
+    subjects.value.push({ label: item.label, value: item.value });
+  });
+};
+getTableList();
 
 onMounted(() => {
-  userStore.getUser()
-})
+  userStore.getUser();
+});
 
 const handleCommand = async (key) => {
-  if (key === 'logout') {
-    await ElMessageBox.confirm('你确认要退出吗?', '温馨提示', {
-      confirmButtonText: '确认',
-      cancelButtonText: '取消',
-      type: 'warning'
-    })
+  if (key === "logout") {
+    await ElMessageBox.confirm("你确认要退出吗?", "温馨提示", {
+      confirmButtonText: "确认",
+      cancelButtonText: "取消",
+      type: "warning",
+    });
     //退出操作,清除本地信息
-    userStore.removeToken()
-    userStore.setUser({})
-    router.push('/login')
+    userStore.removeToken();
+    userStore.setUser({});
+    router.push("/login");
   } else {
-    router.push(`/user/${key}`)
+    router.push(`/user/${key}`);
   }
-}
+};
 </script>
 
 <template>
@@ -95,6 +95,10 @@ const handleCommand = async (key) => {
           <el-menu-item index="/exercises/AchievementCenter">
             <el-icon><DocumentCopy /></el-icon>
             <span>成绩中心 </span>
+          </el-menu-item>
+          <el-menu-item index="/codeExecution/codeExecution">
+            <el-icon><DocumentCopy /></el-icon>
+            <span>在线编程 </span>
           </el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="/yolo">
@@ -150,7 +154,10 @@ const handleCommand = async (key) => {
             <el-icon><Crop /></el-icon>
             <span>更换头像</span>
           </el-menu-item>
-          <el-menu-item index="/user/MyBlog" v-if="userStore.user.role === '超级管理员'">
+          <el-menu-item
+            index="/user/MyBlog"
+            v-if="userStore.user.role === '超级管理员'"
+          >
             <el-icon><EditPen /></el-icon>
             <span>我的博客</span>
           </el-menu-item>
@@ -164,9 +171,8 @@ const handleCommand = async (key) => {
     <el-container>
       <el-header>
         <div>
-          用户昵称：<strong>{{ userStore.user.name || '默认值' }}</strong> 用户角色：<strong>{{
-            userStore.user.role || '默认值'
-          }}</strong>
+          用户昵称：<strong>{{ userStore.user.name || "默认值" }}</strong>
+          用户角色：<strong>{{ userStore.user.role || "默认值" }}</strong>
         </div>
         <el-dropdown placement="bottom-end" @command="handleCommand">
           <span class="el-dropdown__box">
@@ -176,10 +182,18 @@ const handleCommand = async (key) => {
           <!-- 折叠下拉部分 -->
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item command="profile" :icon="User">基本资料</el-dropdown-item>
-              <el-dropdown-item command="avatar" :icon="Crop">更换头像</el-dropdown-item>
-              <el-dropdown-item command="MyBlog" :icon="EditPen">我的博客</el-dropdown-item>
-              <el-dropdown-item command="logout" :icon="SwitchButton">退出登录</el-dropdown-item>
+              <el-dropdown-item command="profile" :icon="User"
+                >基本资料</el-dropdown-item
+              >
+              <el-dropdown-item command="avatar" :icon="Crop"
+                >更换头像</el-dropdown-item
+              >
+              <el-dropdown-item command="MyBlog" :icon="EditPen"
+                >我的博客</el-dropdown-item
+              >
+              <el-dropdown-item command="logout" :icon="SwitchButton"
+                >退出登录</el-dropdown-item
+              >
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -199,7 +213,7 @@ const handleCommand = async (key) => {
     background-color: #232323;
     &__logo {
       height: 120px;
-      background: url('@/assets/logoai.png') no-repeat center / 250px auto;
+      background: url("@/assets/logoai.png") no-repeat center / 250px auto;
     }
     .el-menu {
       border-right: none;

@@ -71,6 +71,11 @@ const router = createRouter({
           path: '/ai/modelManagement',
           component: () => import('@/views/ai/modelManagement.vue')
         },
+        // 在线编程
+        {
+          path: '/codeExecution/codeExecution',
+          component: () => import('@/views/codeExecution/codeExecution.vue')
+        }
       ]
     }
   ]

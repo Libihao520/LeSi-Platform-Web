@@ -21,6 +21,7 @@ import {
   Grid,
   ChatLineSquare,
   Notebook,
+  Monitor
 } from "@element-plus/icons-vue";
 import avatar from "@/assets/default.png";
 import { useUserStore } from "@/stores";
@@ -97,7 +98,7 @@ const handleCommand = async (key) => {
             <span>成绩中心 </span>
           </el-menu-item>
           <el-menu-item index="/codeExecution/codeExecution">
-            <el-icon><DocumentCopy /></el-icon>
+            <el-icon><Monitor /></el-icon>
             <span>在线编程 </span>
           </el-menu-item>
         </el-sub-menu>

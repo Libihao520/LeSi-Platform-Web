@@ -4,7 +4,13 @@ import * as monaco from "monaco-editor";
 import { ElMessage } from "element-plus";
 import { executeCodeService } from "@/api/codeExecution";
 
-const code = ref("// 在这里输入代码");
+const code = ref(`// 在这里输入代码
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+`);
 const language = ref("java");
 const output = ref("");
 let editor = null;
@@ -43,6 +49,11 @@ const runCode = async () => {
       code: code.value,
       language: language.value,
     });
+    if(res.data.data.success === false){
+      output.value = "运行出错：" + (res.data.data.error || "未知错误");
+      ElMessage.error("代码执行失败");
+      return;
+    }
     output.value = res.data.data.output || "无输出";
   } catch (e) {
     output.value = "运行出错：" + (e.message || e);

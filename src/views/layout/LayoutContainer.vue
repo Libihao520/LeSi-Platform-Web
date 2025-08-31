@@ -21,7 +21,9 @@ import {
   Grid,
   ChatLineSquare,
   Notebook,
-  Monitor
+  Monitor,
+  Position,
+  TrendCharts
 } from "@element-plus/icons-vue";
 import avatar from "@/assets/default.png";
 import { useUserStore } from "@/stores";
@@ -165,6 +167,17 @@ const handleCommand = async (key) => {
           <el-menu-item index="/user/RoleManagement">
             <el-icon><Management /></el-icon>
             <span>用户管理</span>
+          </el-menu-item>
+        </el-sub-menu>
+        <!-- 开源地址 --> 
+        <el-sub-menu index="/OpenSource">
+          <template #title>
+            <el-icon><Position /></el-icon>
+            <span>开源地址</span>
+          </template>
+                    <el-menu-item index="/OpenSource/md">
+            <el-icon><TrendCharts /></el-icon>
+            <span>乐思项目介绍</span>
           </el-menu-item>
         </el-sub-menu>
       </el-menu>

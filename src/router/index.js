@@ -78,8 +78,8 @@ const router = createRouter({
         },
         //开源地址
         {
-          path: '/OpenSource/md',
-          component: () => import('@/views/OpenSource/md.vue')
+          path: '/openSource/md',
+          component: () => import('@/views/openSource/md.vue')
         }
       ]
     }

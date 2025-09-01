@@ -170,12 +170,12 @@ const handleCommand = async (key) => {
           </el-menu-item>
         </el-sub-menu>
         <!-- 开源地址 --> 
-        <el-sub-menu index="/OpenSource">
+        <el-sub-menu index="/openSource">
           <template #title>
             <el-icon><Position /></el-icon>
             <span>开源地址</span>
           </template>
-                    <el-menu-item index="/OpenSource/md">
+                    <el-menu-item index="/openSource/md">
             <el-icon><TrendCharts /></el-icon>
             <span>乐思项目介绍</span>
           </el-menu-item>

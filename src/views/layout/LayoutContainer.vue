@@ -23,7 +23,7 @@ import {
   Notebook,
   Monitor,
   Position,
-  TrendCharts
+  TrendCharts,
 } from "@element-plus/icons-vue";
 import avatar from "@/assets/default.png";
 import { useUserStore } from "@/stores";
@@ -157,10 +157,8 @@ const handleCommand = async (key) => {
             <el-icon><Crop /></el-icon>
             <span>更换头像</span>
           </el-menu-item>
-          <el-menu-item
-            index="/user/MyBlog"
-            v-if="userStore.user.role === '超级管理员'"
-          >
+          <el-menu-item index="/user/MyBlog">
+            <!-- 隐藏写法 加到el-menu-item中 v-if="userStore.user.role === '超级管理员'" -->
             <el-icon><EditPen /></el-icon>
             <span>我的博客</span>
           </el-menu-item>
@@ -169,13 +167,13 @@ const handleCommand = async (key) => {
             <span>用户管理</span>
           </el-menu-item>
         </el-sub-menu>
-        <!-- 开源地址 --> 
+        <!-- 开源地址 -->
         <el-sub-menu index="/openSource">
           <template #title>
             <el-icon><Position /></el-icon>
             <span>开源地址</span>
           </template>
-                    <el-menu-item index="/openSource/md">
+          <el-menu-item index="/openSource/md">
             <el-icon><TrendCharts /></el-icon>
             <span>乐思项目介绍</span>
           </el-menu-item>

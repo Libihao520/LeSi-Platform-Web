@@ -67,6 +67,11 @@ export const downloadUserImportTemplateService = () => {
   });
 };
 
+//题库删除
+export const DeletedTestPaperManageService = (id) =>
+  request.delete('/Exercises/DeleteTestPaperManage', { params: { id } })
+
 //开启作答
 export const ChangeHasAnsweringStartedService = (id) =>
   request.get('/Exercises/ChangeHasAnsweringStarted', { params: { id } })
+

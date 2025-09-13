@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { Edit, Delete } from '@element-plus/icons-vue'
 import { formatTime } from '@/utils/format.js'
-import { getTestPaperManage, downloadUserImportTemplateService,ChangeHasAnsweringStartedService } from '../../api/exercises'
+import { getTestPaperManage, downloadUserImportTemplateService,ChangeHasAnsweringStartedService,DeletedTestPaperManageService } from '../../api/exercises'
 import testPapersManageEdit from './testPapersManageEdit.vue'
 
 const channelList = ref([])
@@ -38,7 +38,7 @@ const onEditChannel = (row) => {
 //删除逻辑
 const onDelChannel = async (row, $index) => {
   console.log(row.id)
-  const res = await DelModelService(row.id)
+  const res = await DeletedTestPaperManageService(row.id)
   getTableList()
 }
 

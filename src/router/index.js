@@ -76,6 +76,10 @@ const router = createRouter({
           path: '/codeExecution/codeExecution',
           component: () => import('@/views/codeExecution/codeExecution.vue')
         },
+        {
+          path: '/codeExecution/pythoncodeExecution',
+          component: () => import('@/views/codeExecution/pythoncodeExecution.vue')
+        },
         //开源地址
         {
           path: '/openSource/md',

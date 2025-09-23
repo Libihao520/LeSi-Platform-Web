@@ -103,6 +103,10 @@ const handleCommand = async (key) => {
             <el-icon><Monitor /></el-icon>
             <span>在线编程 </span>
           </el-menu-item>
+          <el-menu-item index="/codeExecution/pythoncodeExecution">
+            <el-icon><Monitor /></el-icon>
+            <span>pytho考试 </span>
+          </el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="/yolo">
           <template #title>
